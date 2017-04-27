@@ -1,0 +1,17 @@
+version: '2'
+services:
+  simplecache:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    links:
+      - redis
+      - memcached
+    volumes:
+      - ./:/var/www/html
+
+  redis:
+    image: redis
+
+  memcached:
+    image: memcached
